@@ -46,6 +46,9 @@ static void sensor_timer_handler(btstack_timer_source_t *ts) {
 int main() {
     stdio_init_all();
 
+    // Short delay to ensure everything is powered up before we start initializing hardware
+    sleep_ms(2500);
+
     // Initialize I2C
     i2c_init(I2C_PORT, 100 * 1000);
     gpio_set_function(I2C_SDA_PIN, GPIO_FUNC_I2C);
